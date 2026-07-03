@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=practice.html">
     <title>Redirecting...</title>
 
     <script>
+        try {
+            localStorage.clear();
+            sessionStorage.clear();
+        } catch (e) {
+            console.warn("Storage could not be cleared:", e);
+        }
         window.location.replace("practice.html");
     </script>
 </head>
