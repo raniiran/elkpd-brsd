@@ -44,6 +44,21 @@
 				preloader: {zIndex: 2,diameter: 60,density: 9,range: 1000,speed: 1,color:'#2090E6',shape:'oval'}
 			});
 		</script>
+		<script type="text/javascript">
+			(function(){
+				var m = location.hash.match(/slide=(\d+)/);
+				if(!m) return;
+				var idx = parseInt(m[1], 10);
+				function tryShow(){
+					if(window.prez && typeof window.prez.showSlideAt === 'function'){
+						try{ window.prez.showSlideAt(idx); }catch(e){}
+						return;
+					}
+					setTimeout(tryShow, 200);
+				}
+				setTimeout(tryShow, 500);
+			})();
+		</script>
 	</div>
 </body>
 </html>
